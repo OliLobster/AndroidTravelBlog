@@ -3,6 +3,8 @@ package com.ollie.androidtravelblog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 
@@ -27,6 +29,14 @@ public class LoginActivity extends AppCompatActivity {
                 LoginActivity.this.onLoginClicked();
             }
         });
+
+        textUsernameLayout
+                .getEditText()
+                .addTextChangedListener(createTextWatcher(textUsernameLayout));
+
+        textPasswordInput
+                .getEditText()
+                .addTextChangedListener(createTextWatcher(textPasswordInput));
     }
 
     private void onLoginClicked(){
@@ -37,5 +47,26 @@ public class LoginActivity extends AppCompatActivity {
         } else if (password.isEmpty()) {
             textPasswordInput.setError("Password must not be empty");
         }
+    }
+
+    private TextWatcher createTextWatcher(TextInputLayout textPasswordInput) {
+        return new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence,
+                                          int start, int count, int after) {
+                // not needed
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence,
+                                      int start, int before, int count) {
+                textPasswordInput.setError(null);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                // not needed
+            }
+        };
     }
 }
