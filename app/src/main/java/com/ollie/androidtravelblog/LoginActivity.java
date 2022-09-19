@@ -30,6 +30,12 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void onLoginClicked(){
-        // will implement later
+        String username = textUsernameLayout.getEditText().getText().toString();
+        String password = textPasswordInput.getEditText().getText().toString();
+        if (username.isEmpty()) {
+            textUsernameLayout.setError("Username must not be empty");
+        } else if (password.isEmpty()) {
+            textPasswordInput.setError("Password must not be empty");
+        }
     }
 }
