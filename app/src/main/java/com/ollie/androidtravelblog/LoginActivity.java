@@ -25,12 +25,14 @@ public class LoginActivity extends AppCompatActivity {
         textUsernameLayout = findViewById(R.id.textUsernameLayout);
         textPasswordInput = findViewById(R.id.textPasswordInput);
         loginButton = findViewById(R.id.loginButton);
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LoginActivity.this.onLoginClicked();
-            }
-        });
+//        loginButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                LoginActivity.this.onLoginClicked();
+//            }
+//        });
+        // simplify above with lambda
+        loginButton.setOnClickListener(v -> onLoginClicked());
 
         textUsernameLayout
                 .getEditText()
@@ -78,11 +80,14 @@ public class LoginActivity extends AppCompatActivity {
         new AlertDialog.Builder(this)
                 .setTitle("Login Failed")
                 .setMessage("Username or password is not correct. Please try again.")
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int which) {
-                        dialogInterface.dismiss();
-                    }
-                }).show();
+//                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialogInterface, int which) {
+//                        dialogInterface.dismiss();
+//                    }
+//                })
+                // simplify above with lambda
+                .setPositiveButton("OK", (dialog, which) -> dialog.dismiss())
+                .show();
     }
 }
