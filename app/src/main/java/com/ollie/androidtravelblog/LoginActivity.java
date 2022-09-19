@@ -2,6 +2,8 @@ package com.ollie.androidtravelblog;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -46,6 +48,8 @@ public class LoginActivity extends AppCompatActivity {
             textUsernameLayout.setError("Username must not be empty");
         } else if (password.isEmpty()) {
             textPasswordInput.setError("Password must not be empty");
+        } else if (!username.equals("admin") && !password.equals("admin")) {
+            showErrorDialog();
         }
     }
 
@@ -68,5 +72,17 @@ public class LoginActivity extends AppCompatActivity {
                 // not needed
             }
         };
+    }
+
+    private void showErrorDialog() {
+        new AlertDialog.Builder(this)
+                .setTitle("Login Failed")
+                .setMessage("Username or password is not correct. Please try again.")
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int which) {
+                        dialogInterface.dismiss();
+                    }
+                }).show();
     }
 }
