@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -101,5 +103,15 @@ public class LoginActivity extends AppCompatActivity {
         textPasswordInput.setEnabled(false);
         loginButton.setVisibility(View.INVISIBLE);
         progressBar.setVisibility(View.VISIBLE);
+
+        Handler handler = new Handler();
+        handler.postDelayed( () -> {
+            startMainActivity();
+        }, 2000);
+    }
+
+    private void startMainActivity() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }
