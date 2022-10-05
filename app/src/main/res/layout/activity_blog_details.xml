@@ -98,4 +98,16 @@
         app:layout_constraintStart_toEndOf="@id/ratingBar"
         app:layout_constraintTop_toTopOf="@+id/ratingBar" />
 
+    <TextView
+        android:id="@+id/textViews"
+        style="@style/TextAppearance.MaterialComponents.Body2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="(2687 views)"
+        android:textColor="@color/grey500"
+        app:layout_constraintBottom_toBottomOf="@id/ratingBar"
+        app:layout_constraintStart_toEndOf="@id/textRating"
+        app:layout_constraintTop_toTopOf="@+id/ratingBar" />
+    
 </androidx.constraintlayout.widget.ConstraintLayout>
