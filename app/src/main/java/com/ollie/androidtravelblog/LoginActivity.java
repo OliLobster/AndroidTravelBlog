@@ -107,6 +107,7 @@ public class LoginActivity extends AppCompatActivity {
         Handler handler = new Handler();
         handler.postDelayed( () -> {
             startMainActivity();
+            finish();
         }, 2000);
     }
 
