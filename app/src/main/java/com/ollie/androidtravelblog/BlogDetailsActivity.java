@@ -39,5 +39,8 @@ public class BlogDetailsActivity extends AppCompatActivity {
 
         RatingBar ratingBar = findViewById(R.id.ratingBar);
         ratingBar.setRating(4.4f);
+
+        ImageView imageBack = findViewById(R.id.imageBack);
+        imageBack.setOnClickListener(v -> finish());
     }
 }
