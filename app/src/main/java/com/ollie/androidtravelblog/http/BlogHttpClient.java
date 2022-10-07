@@ -34,6 +34,8 @@ public final class BlogHttpClient {
     //(3) execute an OkHttpClient request to get the Response and ResponseBody
     //(4) if ResponseBody is not null, we use Gson to parse the JSON by providing JSON String object and class of the result data BlogData.class
     //(5) the whole network call section is wrapped by try/catch to catch the exception and log it via Log.e method
+
+    // stackoverflow: interface as a param https://stackoverflow.com/questions/2575429/interface-as-a-method-parameter-in-java
     public void loadBlogArticles(BlogArticlesCallback callback) {
         Request request = new Request.Builder() // 1
                 .get()
