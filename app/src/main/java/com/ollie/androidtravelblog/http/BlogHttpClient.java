@@ -34,7 +34,7 @@ public final class BlogHttpClient {
     //(3) execute an OkHttpClient request to get the Response and ResponseBody
     //(4) if ResponseBody is not null, we use Gson to parse the JSON by providing JSON String object and class of the result data BlogData.class
     //(5) the whole network call section is wrapped by try/catch to catch the exception and log it via Log.e method
-    public void loadBlogArticles() {
+    public void loadBlogArticles(BlogArticlesCallback callback) {
         Request request = new Request.Builder() // 1
                 .get()
                 .url(BLOG_ARTICLES_URL)
@@ -48,14 +48,14 @@ public final class BlogHttpClient {
                     String json = responseBody.string();
                     BlogData blogData = gson.fromJson(json, BlogData.class);
                     if (blogData != null) {
-                        // success blogData.getData()
+                        callback.onSuccess(blogData.getData());
                         return;
                     }
                 }
             } catch (IOException e) { // 5
                 Log.e("BlogHttpClient", "Error loading blog articles", e);
             }
-            // error
+            callback.onError();
         });
     }
 }
