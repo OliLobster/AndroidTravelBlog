@@ -6,6 +6,7 @@ import com.google.gson.Gson;
 
 import java.io.IOException;
 import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -26,7 +27,9 @@ public final class BlogHttpClient {
             BASE_URL + "8550ef2064bf14fcf3b9ff322287a2e056c7e153/blog_articles.json";
 
     private BlogHttpClient() {
-        // to do
+        executor = Executors.newFixedThreadPool(4);
+        client = new OkHttpClient();
+        gson = new Gson();
     }
 
     //(1) create a Request object which defines the type of request and URL

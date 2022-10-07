@@ -13,38 +13,47 @@ public class Blog {
     private float rating;
 
     public String getTitle() {
+
         return title;
     }
 
     public String getDate() {
+
         return date;
     }
 
     public String getImage() {
+
         return image;
     }
 
     public String getDescription() {
+
         return description;
     }
 
     public int getViews() {
+
         return views;
     }
 
     public float getRating() {
+
         return rating;
     }
 
     public Author getAuthor() {
+
         return author;
     }
 
     public void setAuthor(Author author) {
+
         this.author = author;
     }
 
     public String getId() {
+
         return id;
     }
 }
