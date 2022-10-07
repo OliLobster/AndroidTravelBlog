@@ -28,8 +28,8 @@
         android:shadowDy="1"
         android:shadowRadius="2"
         tools:text="G'day from Sydney"
-        tools:textColor="@android:color/white"
-        tools:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textDate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -46,7 +46,7 @@
         android:shadowDy="1"
         android:shadowRadius="2"
         tools:text="August 2, 2019"
-        tools:textColor="@android:color/white"
+        android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="@+id/imageMain"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
