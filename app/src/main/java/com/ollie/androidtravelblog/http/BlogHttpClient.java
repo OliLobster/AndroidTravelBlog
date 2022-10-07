@@ -28,7 +28,7 @@ public final class BlogHttpClient {
     private BlogHttpClient() {
         // to do
     }
-    
+
     //(1) create a Request object which defines the type of request and URL
     //(2) use Executor to execute code on the background thread
     //(3) execute an OkHttpClient request to get the Response and ResponseBody
